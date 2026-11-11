@@ -1,10 +1,9 @@
 #
 - `langgraph_example_multiagents.py` — one **runnable Python script**, compatible with Windows PowerShell, VS Code, and macOS/Linux terminals.
-- `langgraph_example_mutliagents..ipynb` — one **self-contained Jupyter notebook**; every topic includes its code and a runnable example.
+- `langgraph_example_mutliagents.ipynb` — one **self-contained Jupyter notebook**; every topic includes its code and a runnable example.
 - `requirements_langgraph_example.txt` — one dependency list for the offline examples, optional OpenAI examples, and Jupyter.
 - `run_langgraph_windows.cmd` — optional Windows double-click launcher (runs all offline examples).
-
-Both learning artifacts contain the same 18 exercises. They do **not** require PyTorch or a GPU: LangGraph orchestrates nodes; it does not train an LLM.
+#. It does **not** require PyTorch or a GPU: LangGraph orchestrates nodes; it does not train an LLM.
 
 ## Requirements and installation (Windows 11, Anaconda or VS Code terminal)
 
