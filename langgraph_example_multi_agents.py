@@ -35,7 +35,7 @@ def _openai_llm(model_name: str | None = None):
             "Install the optional packages: pip install langchain-openai python-dotenv"
         ) from exc
     load_dotenv()
-    if not os.getenv("key_4LiqsgHst8glMMrY"):
+    if not os.getenv("OPENAI_API_KEY"):
         raise RuntimeError(
             "OPENAI_API_KEY is missing. Set it in the environment or in a .env file."
         )
