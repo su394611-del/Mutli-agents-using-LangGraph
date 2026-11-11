@@ -1,6 +1,4 @@
-
-#This package consolidates **all topics** in the uploaded *Chap-10 Fundamentals of LangGraph.ipynb* into:
-
+#
 - `langgraph_example_multiagents.py` — one **runnable Python script**, compatible with Windows PowerShell, VS Code, and macOS/Linux terminals.
 - `langgraph_example_mutliagents..ipynb` — one **self-contained Jupyter notebook**; every topic includes its code and a runnable example.
 - `requirements_langgraph_example.txt` — one dependency list for the offline examples, optional OpenAI examples, and Jupyter.
