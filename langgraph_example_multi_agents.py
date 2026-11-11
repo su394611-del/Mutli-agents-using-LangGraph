@@ -1,23 +1,3 @@
-#
-"".
-
-Based on the user's uploaded 'Chap-10 Fundamentals of LangGraph.ipynb'.
-
-Default execution runs all examples that need no API key:
-    python langgraph_ch10_complete.py
-    python langgraph_ch10_complete.py --list
-    python langgraph_ch10_complete.py --self-test
-    python langgraph_ch10_complete.py --topic conditional_edges
-    python langgraph_ch10_complete.py --export-mermaid diagrams
-
-Optional real OpenAI examples (will incur API costs):
-    Set OPENAI_API_KEY in the environment or .env (never hard-code credentials).
-    python langgraph_ch10_complete.py --with-llm
-
-Requires langgraph, langchain-core, pydantic. For optional OpenAI examples:
-langchain-openai and python-dotenv. See requirements_langgraph_ch10.txt.
-"""
-
 import argparse
 import json
 import operator
