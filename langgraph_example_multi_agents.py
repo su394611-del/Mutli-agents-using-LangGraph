@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
-"""Chapter 10 — Fundamentals of LangGraph: all examples in one runnable script.
+#
+"".
 
 Based on the user's uploaded 'Chap-10 Fundamentals of LangGraph.ipynb'.
 
@@ -11,7 +11,7 @@ Default execution runs all examples that need no API key:
     python langgraph_ch10_complete.py --export-mermaid diagrams
 
 Optional real OpenAI examples (will incur API costs):
-    Set OPENAI_API_KEY in environment or .env (never hard-code credentials).
+    Set OPENAI_API_KEY in the environment or .env (never hard-code credentials).
     python langgraph_ch10_complete.py --with-llm
 
 Requires langgraph, langchain-core, pydantic. For optional OpenAI examples:
