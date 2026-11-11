@@ -57,7 +57,7 @@ Then in PowerShell:
 Or invoke just one:
 
 ```powershell
-.\.venv-langgraph\Scripts\python.exe .\langgraph_ch10_complete.py --topic llm_node
+.\.venv-langgraph\Scripts\python.exe .\langgraph_example_mutliagent --topic llm_node
 ```
 
 In the Jupyter notebook, set `RUN_OPENAI_EXAMPLES=1` in the kernel's environment before executing the cells; do not place real API keys directly into notebook source code. `.env` is loaded only if you enable the examples.
