@@ -105,4 +105,4 @@ In the Jupyter notebook, set `RUN_OPENAI_EXAMPLES=1` in the kernel's environment
 - Python packages must be installed in your environment before running; `.cmd` can find `python` from your PATH.
 - The optional OpenAI examples are not offline; an API key and internet access are required.
 - Mermaid `.mmd` files can be displayed in VS Code Mermaid extensions or Mermaid Live; image rendering is optional.
-- Source: your attached Chapter 10 notebook. Corrections and runnable packaging are additional work.
+  - Corrections and runnable packaging are additional work.
