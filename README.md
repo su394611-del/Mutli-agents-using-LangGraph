@@ -84,7 +84,7 @@ In the Jupyter notebook, set `RUN_OPENAI_EXAMPLES=1` in the kernel's environment
 | 17 | Invoke a subgraph from a parent node (different schemas) | `subgraph_wrapper` |
 | 18 | Add a compiled subgraph directly as a node (shared schema) | `subgraph_direct` |
 
-## Improvements over the uploaded source
+## Improvements 
 
 - No repeatedly overwritten global `graph`, `graph_builder`, or `GraphState` variables.
 - Node functions return **partial state updates**, rather than mutating shared input state dictionaries.
