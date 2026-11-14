@@ -3,7 +3,7 @@
 - `langgraph_example_mutliagents.ipynb` — one **self-contained Jupyter notebook**; every topic includes its code and a runnable example.
 - `requirements_langgraph_example.txt` — one dependency list for the offline examples, optional OpenAI examples, and Jupyter.
 - `run_langgraph_windows.cmd` — optional Windows double-click launcher (runs all offline examples).
-#. It does **not** require PyTorch or a GPU: LangGraph orchestrates nodes; it does not train an LLM.
+#. It does **not** require PyTorch or a GPU: LangGraph orchestrates nodes; it does not train an LLM. For offline LLM, a consumer-grade single GPU or consumer-grade two GPUs are sufficient.
 
 ## Requirements and installation (Windows 11, Anaconda or VS Code terminal)
 
@@ -103,3 +103,5 @@ In the Jupyter notebook, set `RUN_OPENAI_EXAMPLES=1` in the kernel's environment
 - The optional OpenAI examples are not offline; an API key and internet access are required.
 - Mermaid `.mmd` files can be displayed in VS Code Mermaid extensions or Mermaid Live; image rendering is optional.
   - Corrections and runnable packaging are additional work.
+    ## License
+    This project is licensed under the Apache License, Version 2.0.© 2026 Sudhanshu Shukla · Licensed under the Apache License, Version 2.0.
