@@ -1,80 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1">
-
-  <title>
-    Multi-Agent Workflows with LangGraph |
-    Python and Agentic AI
-  </title>
-
-  <meta name="description"
-        content="Learn LangGraph and Agentic AI
-        development using Python, StateGraph,
-        conditional routing, Pydantic, reducers,
-        message state, subgraphs and
-        multi-agent workflow examples.">
-
-  <meta name="robots" content="index, follow">
-
-  <link rel="canonical"
-        href="https://su394611-del.github.io/Mutli-agents-using-LangGraph/">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#07101d">
+<meta name="author" content="Sudhanshu Shukla">
+<meta name="description" content="18 hands-on LangGraph and Agentic AI Python examples: StateGraph, conditional routing, TypedDict, Pydantic, reducers, MessagesState, subgraphs and optional OpenAI.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://su394611-del.github.io/Mutli-agents-using-LangGraph/">
+<title>LangGraph Multi-Agent Workflows | Python &amp; Agentic AI</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="LangGraph Multi-Agent Workflows | Python &amp; Agentic AI">
+<meta property="og:description" content="18 hands-on LangGraph and Agentic AI Python examples: StateGraph, conditional routing, TypedDict, Pydantic, reducers, MessagesState, subgraphs and optional OpenAI.">
+<meta property="og:url" content="https://su394611-del.github.io/Mutli-agents-using-LangGraph/">
+<meta property="og:image" content="https://su394611-del.github.io/Mutli-agents-using-LangGraph/social-preview.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Diagram of LangGraph multi-agent workflow learning, state, reducers and subgraphs">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LangGraph Multi-Agent Workflows | Python &amp; Agentic AI">
+<meta name="twitter:description" content="18 hands-on LangGraph and Agentic AI Python examples: StateGraph, conditional routing, TypedDict, Pydantic, reducers, MessagesState, subgraphs and optional OpenAI.">
+<meta name="twitter:image" content="https://su394611-del.github.io/Mutli-agents-using-LangGraph/social-preview.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://su394611-del.github.io/Mutli-agents-using-LangGraph/#site","url":"https://su394611-del.github.io/Mutli-agents-using-LangGraph/","name":"LangGraph Multi-Agent Workflow Engineering"},{"@type":"WebPage","@id":"https://su394611-del.github.io/Mutli-agents-using-LangGraph/#page","url":"https://su394611-del.github.io/Mutli-agents-using-LangGraph/","name":"LangGraph Multi-Agent Workflows | Python Agentic AI","description":"18 hands-on LangGraph and Agentic AI Python examples: StateGraph, conditional routing, TypedDict, Pydantic, reducers, MessagesState, subgraphs and optional OpenAI.","inLanguage":"en","isPartOf":{"@id":"https://su394611-del.github.io/Mutli-agents-using-LangGraph/#site"}},{"@type":"SoftwareSourceCode","name":"Multi-Agent Workflows using LangGraph","description":"Python examples of LangGraph state, routing, reducers, messaging and subgraph composition. Optional hosted LLM integration.","codeRepository":"https://github.com/su394611-del/Mutli-agents-using-LangGraph","programmingLanguage":"Python","license":"https://www.apache.org/licenses/LICENSE-2.0","url":"https://su394611-del.github.io/Mutli-agents-using-LangGraph/","author":{"@type":"Person","name":"Sudhanshu Shukla","url":"https://github.com/su394611-del"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Portfolio","item":"https://su394611-del.github.io/"},{"@type":"ListItem","position":2,"name":"LangGraph Multi-Agent Workflows","item":"https://su394611-del.github.io/Mutli-agents-using-LangGraph/"}]}]}</script>
+<style>
+:root{color-scheme:dark;--bg:#07101d;--surface:#0e1c2c;--surface2:#122337;--stroke:#264055;--ink:#f0f7ff;--muted:#a1b6c9;--soft:#6e899f;--cyan:#66dfdf;--purple:#a58bfd;--orange:#ffcd9c;--focus:#b9fcfe;--max:1160px;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:94px}body{margin:0;color:var(--ink);background:var(--bg);line-height:1.65;overflow-x:hidden;background-image:radial-gradient(ellipse 60rem 42rem at 86% -6%,#16324c77,transparent 75%),radial-gradient(ellipse 53rem 34rem at -5% 19%,#17234471,transparent 70%)}
+body:before{content:"";pointer-events:none;position:absolute;left:0;right:0;top:74px;height:720px;opacity:.23;background-image:linear-gradient(to right,#32557730 1px,transparent 1px),linear-gradient(to bottom,#32557730 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,black,transparent)}
+a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--focus);outline-offset:3px}::selection{background:#66dfdf66;color:white}.container{width:min(var(--max),calc(100% - 64px));margin-inline:auto}.skip{position:absolute;top:-80px;left:8px;padding:10px 15px;background:white;color:#07101d;z-index:99}.skip:focus{top:8px}.site-header{position:sticky;top:0;z-index:50;border-bottom:1px solid #294256b9;background:#07101ddf;backdrop-filter:blur(18px)}.nav-wrap{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:13px;min-width:0}.brand-symbol{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;border:1px solid #327d8d;box-shadow:inset 0 0 18px #20596b63;background:#173449;color:var(--cyan);font-size:22px;font-weight:800;letter-spacing:-.09em}.brand-text{display:flex;flex-direction:column;line-height:1.25}.brand-text strong{font-size:14px;letter-spacing:.015em}.brand-text small{color:#81a2b7;font-size:10px;font-weight:750;letter-spacing:.16em;margin-top:4px}.nav-links{display:flex;align-items:center;gap:26px}.nav-links>a:not(.nav-cta){font-size:13px;font-weight:650;color:#b4c8d7;transition:color .2s}.nav-links>a:hover{color:var(--cyan)}.nav-cta{display:inline-flex;gap:10px;align-items:center;border:1px solid #458895;border-radius:10px;padding:10px 14px;background:#163947;color:#e1ffff;font-size:13px;font-weight:750}.menu-btn{display:none;background:#122839;border:1px solid #375064;color:white;padding:9px 12px;border-radius:9px}.menu-btn svg{display:block}
+.hero{padding-top:96px;padding-bottom:66px;display:grid;grid-template-columns:minmax(0,1.09fr) minmax(0,.91fr);gap:65px;align-items:center;position:relative}.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--cyan);text-transform:uppercase}.eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:#64e8ca;box-shadow:0 0 0 5px #64e8ca20}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(3rem,5.5vw,5.1rem);line-height:1.07;letter-spacing:-.065em;margin:20px 0 25px;font-weight:850}.gradient{background:linear-gradient(105deg,#77eddf 9%,#96bbff 58%,#c2a3ff 95%);background-clip:text;-webkit-background-clip:text;color:transparent}.hero-lead{color:#c0d0dd;font-size:17px;max-width:590px;line-height:1.82}.hero-note{font-size:13px;color:#88a3b7;line-height:1.65;margin:21px 0 0}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:29px 0 0}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:47px;border:1px solid #48657b;border-radius:10px;padding:11px 19px;font-size:13px;font-weight:800;transition:transform .2s,background .2s}.btn:hover{transform:translateY(-2px)}.btn-primary{background:#76e8df;color:#09212b;border-color:#76e8df;box-shadow:0 9px 30px #49baaf19}.btn-primary:hover{background:#abfff6}.btn-secondary{background:#15283a;color:#e6f4ff}.btn-secondary:hover{background:#20394f}.chipline{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 0}.chip{font-size:11px;border:1px solid #31516a;color:#c2d2df;background:#122439b2;padding:5px 10px;border-radius:999px}.card-glow{position:relative;min-width:0;background:linear-gradient(155deg,#13283c,#0c1a2c 78%);border:1px solid #30516a;border-radius:22px;box-shadow:0 24px 70px #0005;overflow:hidden;padding:22px}.card-glow:before{content:"";position:absolute;width:280px;height:280px;top:-190px;right:-70px;border-radius:50%;background:#47a5b51a;filter:blur(36px)}.window-head{display:flex;justify-content:space-between;gap:10px;align-items:center;border-bottom:1px solid #243e53;padding-bottom:15px;margin-bottom:20px;font-size:10px;letter-spacing:.15em;font-weight:800;color:#9fbacd}.head-dots{display:flex;gap:5px}.head-dots i{height:7px;width:7px;border-radius:50%;background:#58758b}.head-dots i:first-child{background:#f7a59d}.head-dots i:nth-child(2){background:#f6d287}.head-dots i:nth-child(3){background:#80d8b6}.diagram{display:flex;flex-direction:column;gap:9px;align-items:center;position:relative}.graph-node{border:1px solid #426579;background:#192c42;padding:11px 16px;border-radius:11px;text-align:center;width:min(100%,260px);font-weight:740;font-size:13px}.graph-node small{display:block;font-weight:600;color:#9aafc1;font-size:10px;margin-top:2px;letter-spacing:.04em}.node-active{background:#183f47;border-color:#70c9c8;color:#e2fffd}.node-route{border-color:#856eae;background:#2b2643}.connector{height:16px;position:relative;width:1px;background:#52768b}.connector:after{content:"";position:absolute;left:-3px;bottom:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #72afc0}.graph-branches{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:11px;position:relative}.graph-branches .graph-node{width:auto;font-size:12px;padding:12px 8px}.graph-bar{height:13px;width:55%;border-left:1px solid #58809c;border-right:1px solid #58809c;border-top:1px solid #58809c;border-radius:7px 7px 0 0}.graph-tail{width:55%;height:13px;border-left:1px solid #58809c;border-right:1px solid #58809c;border-bottom:1px solid #58809c;border-radius:0 0 7px 7px}.diagram-label{font-size:10px;letter-spacing:.12em;color:#8fa7b8;text-align:center;margin:15px 0 0}.hero-badges{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:0 0 75px}.metric{padding:18px 22px;background:#111f31;border:1px solid #274157;border-radius:13px;display:flex;gap:17px;align-items:center}.metric b{font-size:29px;line-height:1.2;letter-spacing:-.07em;color:#dcfdf9}.metric span{color:#9bb3c7;font-size:12px;line-height:1.35}
+section{scroll-margin-top:100px}.section{padding:75px 0}.section-alt{background:linear-gradient(180deg,#0b1928,#0c1827)}.kicker{font-size:11px;font-weight:850;letter-spacing:.16em;color:var(--cyan);text-transform:uppercase;margin:0 0 13px}.section-title{font-size:clamp(2rem,3.8vw,3.2rem);line-height:1.15;letter-spacing:-.045em;margin:0 0 18px}.section-subtitle{color:var(--muted);max-width:750px;font-size:15px;line-height:1.85}.section-heading{margin-bottom:34px}.feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.feature{min-width:0;background:#112236;border:1px solid #274158;border-radius:16px;padding:23px;transition:transform .2s,border-color .2s}.feature:hover{transform:translateY(-3px);border-color:#46899a}.feature-icon{width:44px;height:44px;display:grid;place-items:center;border-radius:11px;font-size:20px;font-weight:800;color:#9af0ec;background:#183b46;border:1px solid #326979;margin-bottom:18px}.feature h3{font-size:16px;line-height:1.35;margin:0 0 9px;letter-spacing:-.01em}.feature p{font-size:13px;color:#9fb5c5;margin:0;line-height:1.7}.architecture-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:20px;align-items:stretch}.arch-shell{background:#101f31;border:1px solid #2a455c;border-radius:18px;padding:26px;min-width:0}.arch-title{font-size:14px;font-weight:800;color:#d4f9f7;margin-bottom:16px}.flow-row{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:8px}.flow-box{border:1px solid #3a6172;border-radius:12px;padding:13px 9px;text-align:center;font-size:12px;font-weight:760;line-height:1.4;background:#172d40;min-width:0}.flow-box small{display:block;color:#8bacbf;font-size:10px;margin-top:4px;font-weight:600}.flow-arr{color:#74c6c6;font-size:22px}.branch-panel{padding:17px;border-radius:12px;background:#142538;border:1px solid #314a60;margin:22px 0}.branch-panel b{font-size:12px;color:#a8eee7;display:block;margin-bottom:7px}.branch-panel p{font-size:13px;color:#a8c0ce;margin:0}.branch-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.branch-list div{border:1px solid #324c63;border-radius:10px;padding:12px;font-size:12px;color:#c6d7e1;background:#112537}.arch-detail{display:grid;gap:14px}.arch-info{border:1px solid #2d4c60;background:#11253a;border-radius:14px;padding:22px}.arch-info b{font-size:14px;display:block;margin-bottom:7px}.arch-info p{font-size:13px;color:#a1b8c7;margin:0}.arch-info code{font-size:11px;color:#90f1e5}
+.lesson-controls{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:22px 0 24px}.filter-bar{display:flex;gap:7px;flex-wrap:wrap}.filter-button{border:1px solid #33546a;color:#bdcede;background:#122638;border-radius:999px;padding:8px 13px;font-size:12px;font-weight:700}.filter-button[aria-pressed="true"]{color:#06222b;background:#7be9df;border-color:#7be9df}.search-field{width:min(100%,270px);min-width:0;display:flex;border:1px solid #385972;background:#132638;border-radius:11px;align-items:center;padding:0 12px;color:#82a7b7}.search-field input{width:100%;min-width:0;border:0;outline:0;color:#f0f9ff;background:transparent;padding:11px 8px;font-size:13px}.search-field input::placeholder{color:#8199aa}.results-row{display:flex;justify-content:space-between;align-items:center;color:#88a9bd;font-size:12px;margin-bottom:14px;gap:12px}.lesson-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.lesson{display:flex;flex-direction:column;min-width:0;background:#102237;border:1px solid #2c465e;border-radius:15px;padding:20px;min-height:232px}.lesson:hover{border-color:#5992a8}.lesson[hidden]{display:none!important}.lesson-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:18px}.lesson-index{font-size:10px;font-weight:800;color:#83b7bf;letter-spacing:.1em}.lesson-category{border:1px solid #3a506d;border-radius:999px;padding:3px 8px;font-size:10px;color:#bbaafb;white-space:nowrap}.lesson h3{font-size:16px;line-height:1.35;margin-bottom:10px}.lesson p{font-size:12.5px;color:#9db4c6;line-height:1.7;flex:1;margin-bottom:19px}.lesson-footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}.lesson-footer code{font-size:10px;color:#90f2e1;background:#0a1b2c;border-radius:6px;border:1px solid #28465a;padding:5px 7px;overflow-wrap:anywhere}.lesson-footer span{font-size:10px;color:#86a4b8}.empty{padding:30px;color:#bcd3df;text-align:center;border:1px dashed #37536c;border-radius:12px}.empty[hidden]{display:none!important}
+.run-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:24px}.code-col{min-width:0}.code-panel{border:1px solid #304b63;background:#071320;border-radius:13px;overflow:hidden;margin-bottom:15px;min-width:0}.code-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 16px;border-bottom:1px solid #263d53;color:#d6e6f3;font-size:12px;font-weight:800}.copy-btn{border:1px solid #47667b;background:#172b3d;color:#b0faf0;border-radius:7px;padding:4px 10px;font-size:11px;font-weight:800}.code-panel pre{padding:16px;margin:0;overflow-x:auto;max-width:100%;font-size:11px;line-height:1.85;color:#bce8e0;tab-size:2}.code-panel code{white-space:pre;display:block;min-width:0}.run-aside{display:grid;align-content:start;gap:15px}.tip{border:1px solid #31516b;border-radius:14px;background:#142738;padding:21px}.tip h3{font-size:16px;margin:0 0 10px}.tip p,.tip li{font-size:13px;color:#a7bdcb;line-height:1.7}.tip ul{padding-left:19px;margin:0}.tip code{font-size:11px;color:#8eefdf;overflow-wrap:anywhere}.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.files-card,.scope-card{background:#102237;border:1px solid #2d485f;border-radius:17px;padding:24px;min-width:0}.files-card h3,.scope-card h3{font-size:20px;margin-bottom:13px}.files-card ul{padding:0;margin:0;list-style:none}.files-card li+li{border-top:1px solid #243f55}.files-card li a{display:block;padding:13px 0}.files-card li a:hover .mono{color:var(--cyan)}.files-card li .mono{display:block;color:#e3f5ff;font-size:11px;overflow-wrap:anywhere;font-weight:700}.files-card li a>span:last-child{color:#94acbc;font-size:12px}.scope-card p{color:#a4bdcc;font-size:13px}.scope-list{padding-left:20px;margin-top:10px;color:#b1c6d5;font-size:13px}.scope-list li{margin-bottom:9px}.links-panel{display:flex;flex-wrap:wrap;gap:10px;margin-top:21px}.links-panel a{font-size:12px;border:1px solid #44647c;border-radius:9px;padding:10px 13px;background:#16354a;font-weight:750}.links-panel a:hover{border-color:#7fdccf}.footer{border-top:1px solid #2a465d;padding:31px 0 40px;color:#829eb4}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.footer p{margin:0;font-size:12px}.footer a{font-size:12px;color:#c3dcde}.footer a:hover{color:var(--cyan)}.footlinks{display:flex;flex-wrap:wrap;gap:18px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:1020px){.hero{gap:30px}.lesson-grid,.feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nav-links{gap:15px}}
+@media(max-width:760px){.container{width:min(100% - 36px,var(--max))}.nav-wrap{min-height:69px}.menu-btn{display:block}.nav-links{display:none;position:absolute;left:18px;right:18px;top:calc(100% + 6px);padding:18px;background:#102337;border:1px solid #36536a;border-radius:14px;box-shadow:0 19px 45px #0008;flex-direction:column;align-items:stretch;gap:17px}.nav-links.is-open{display:flex}.nav-links>a{display:block}.nav-cta{justify-content:center}.hero{grid-template-columns:1fr;padding-top:60px;gap:40px;padding-bottom:43px}h1{font-size:clamp(2.75rem,10vw,4.2rem)}.card-glow{max-width:510px;width:100%;margin:auto}.hero-badges{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding-bottom:45px}.metric{padding:15px 10px;display:block;text-align:center}.metric b{display:block;font-size:25px}.metric span{display:block;margin-top:4px;font-size:10px}.section{padding:55px 0}.architecture-layout,.run-grid,.detail-grid{grid-template-columns:1fr}.lesson-controls{align-items:stretch}.search-field{width:100%}.flow-row{gap:5px}}
+@media(max-width:480px){.container{width:calc(100% - 28px)}.brand-text strong{font-size:12px}.brand-text small{font-size:8px}.brand-symbol{width:39px;height:39px}.hero{padding-top:42px}.hero-lead{font-size:15px}.hero-actions{display:grid;grid-template-columns:1fr}.hero-actions .btn{width:100%}.card-glow{padding:15px;border-radius:16px}.feature-grid,.lesson-grid{grid-template-columns:1fr}.feature{padding:20px}.hero-badges{gap:7px}.metric{padding:12px 7px}.metric b{font-size:23px}.metric span{font-size:9.5px}.branch-list{grid-template-columns:1fr}.flow-row{grid-template-columns:1fr;gap:7px}.flow-arr{text-align:center;transform:rotate(90deg);line-height:1}.arch-shell{padding:16px}.section-title{font-size:2rem}.filter-button{padding:7px 10px;font-size:11px}.lesson{min-height:0}.footer-inner{align-items:flex-start;flex-direction:column}.nav-wrap{gap:10px}}
+.run-aside{min-width:0;grid-template-columns:minmax(0,1fr)}.run-grid,.code-col,.code-panel,.tip{max-width:100%;min-width:0}.tip{overflow:hidden}@media(max-width:760px){.run-grid,.detail-grid,.architecture-layout{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+</style>
 </head>
-
 <body>
-  <h1>Multi-Agent Workflows Using LangGraph</h1>
-
-  <p>
-    Python project demonstrating
-    LangGraph workflows, state management,
-    conditional routing and subgraph orchestration.
-  </p>
-
-  <h2>Project Features</h2>
-  <ul>
-    <li>LangGraph StateGraph architecture</li>
-    <li>Graph nodes and edges</li>
-    <li>Conditional edges and routing</li>
-    <li>TypedDict state management</li>
-    <li>Pydantic state validation</li>
-    <li>Input and output state schemas</li>
-    <li>Private and intermediate state</li>
-    <li>State reducers and custom reducers</li>
-    <li>add_messages and MessagesState</li>
-    <li>HR and IT subgraph orchestration</li>
-    <li>Optional OpenAI LLM integration</li>
-    <li>Python and Jupyter Notebook examples</li>
-  </ul>
-
-  <h2>Architecture and Design</h2>
-  <p>
-    The project explores LangGraph orchestration,
-    shared graph state, conditional execution,
-    and reusable subgraph patterns.
-  </p>
-
-  <h2>Execution Modes</h2>
-  <p>
-    Most demonstrations run offline without an
-    LLM API. Selected examples optionally use
-    OpenAI models when configured.
-  </p>
-
-  <h2>Source Code</h2>
-  <p>
-    <a href="https://github.com/su394611-del/Mutli-agents-using-LangGraph">
-      View GitHub Repository
-    </a>
-  </p>
-
-  <h2>Technical Documentation</h2>
-  <p>
-    <a href="https://github.com/su394611-del/Mutli-agents-using-LangGraph/wiki">
-      View GitHub Wiki and Architecture Documentation
-    </a>
-  </p>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="container nav-wrap"><a class="brand" href="#top" aria-label="LangGraph multi-agent project home"><span class="brand-symbol" aria-hidden="true">LG</span><span class="brand-text"><strong>LangGraph / Agentic AI</strong><small>PYTHON ENGINEERING PORTFOLIO</small></span></a><button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="siteNav" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><nav id="siteNav" class="nav-links" aria-label="Main navigation"><a href="#architecture">Architecture</a><a href="#capabilities">Capabilities</a><a href="#examples">18 examples</a><a href="#getting-started">Run locally</a><a class="nav-cta" href="https://github.com/su394611-del/Mutli-agents-using-LangGraph" target="_blank" rel="noopener noreferrer">GitHub source <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main">
+<div class="container"><section class="hero" id="top" aria-labelledby="hero-title"><div class="hero-content"><span class="eyebrow">OPEN-SOURCE LANGGRAPH PROJECT / 2026</span><h1 id="hero-title">Build workflows.<br><span class="gradient">Orchestrate with state.</span></h1><p class="hero-lead">Explore real Python examples of LangGraph's graph execution, conditional routing, typed state, reducers, message history, and reusable HR/IT subgraphs. Start offline; connect an OpenAI model only when you choose to.</p><div class="hero-actions"><a href="#examples" class="btn btn-primary">Explore 18 examples <span aria-hidden="true">↗</span></a><a href="#getting-started" class="btn btn-secondary">Run the code <span aria-hidden="true">⌁</span></a></div><div class="chipline"><span class="chip">LangGraph StateGraph</span><span class="chip">Python</span><span class="chip">Pydantic</span><span class="chip">Reducers</span><span class="chip">Subgraphs</span></div><p class="hero-note">A graph-orchestration learning project—not LLM pretraining, a deployed autonomous-agent platform, or a production benchmark.</p></div>
+<div class="card-glow" role="img" aria-label="Illustrative workflow with StateGraph routing into two branches, merged state, and a result"><div class="window-head"><span><span class="head-dots" aria-hidden="true"><i></i><i></i><i></i></span></span><span>STATEGRAPH / WORKFLOW TRACE</span><span>001 → 006</span></div><div class="diagram"><div class="graph-node node-active">START <small>input state</small></div><div class="connector"></div><div class="graph-node">Graph node <small>read → partial update</small></div><div class="connector"></div><div class="graph-node node-route">Conditional router <small>select next edge</small></div><div class="graph-bar"></div><div class="graph-branches"><div class="graph-node">Path A <small>process state</small></div><div class="graph-node">Path B <small>process state</small></div></div><div class="graph-tail"></div><div class="connector"></div><div class="graph-node">Reducer / output <small>merge &amp; expose state</small></div><div class="connector"></div><div class="graph-node node-active">END <small>final result</small></div></div><p class="diagram-label">ILLUSTRATIVE ROUTING + STATE FLOW</p></div></section>
+<div class="hero-badges" aria-label="Project overview"><div class="metric"><b>18</b><span>Example topics<br>in the Python CLI</span></div><div class="metric"><b>16</b><span>Offline examples<br>without hosted LLM</span></div><div class="metric"><b>02</b><span>Optional OpenAI<br>integrations</span></div></div></div>
+<section id="capabilities" class="section section-alt"><div class="container"><div class="section-heading"><p class="kicker">WHAT THE CODE DEMONSTRATES</p><h2 class="section-title">The building blocks of agent workflows<span style="color:var(--cyan)">.</span></h2><p class="section-subtitle">These capabilities are based on the current Python source. Each example keeps a focused scope so you can inspect graph execution and state behavior separately.</p></div><div class="feature-grid"><article class="feature"><div class="feature-icon" aria-hidden="true">↗</div><h3>Nodes &amp; edges</h3><p>Compile StateGraph workflows with START/END transitions and sequential node execution.</p></article>
+<article class="feature"><div class="feature-icon" aria-hidden="true">◇</div><h3>Conditional routes</h3><p>Route execution using intermediate values and explicit branch mappings.</p></article>
+<article class="feature"><div class="feature-icon" aria-hidden="true">{}</div><h3>Typed state</h3><p>Use TypedDict with input/output or private channels and partial node updates.</p></article>
+<article class="feature"><div class="feature-icon" aria-hidden="true">✓</div><h3>Pydantic validation</h3><p>Validate bounded values explicitly, including calculated outputs.</p></article>
+<article class="feature"><div class="feature-icon" aria-hidden="true">+</div><h3>Custom reducers</h3><p>Compare overwrites, numeric/list accumulation and distinct-item merging.</p></article>
+<article class="feature"><div class="feature-icon" aria-hidden="true">☷</div><h3>Message memory</h3><p>Demonstrate add_messages and MessagesState without a hosted model.</p></article>
+<article class="feature"><div class="feature-icon" aria-hidden="true">◎</div><h3>Subgraph composition</h3><p>Show wrapper-based and direct shared-schema HR / IT orchestration.</p></article>
+<article class="feature"><div class="feature-icon" aria-hidden="true">⌁</div><h3>Offline-first runs</h3><p>Explore sixteen deterministic examples without an LLM API or GPU.</p></article>
+<article class="feature"><div class="feature-icon" aria-hidden="true">✧</div><h3>Opt-in LLM calls</h3><p>Two OpenAI integrations gated behind configuration and explicit selection.</p></article>
+<article class="feature"><div class="feature-icon" aria-hidden="true">⇥</div><h3>Documentation output</h3><p>Export Mermaid graph sources and example results as JSON.</p></article>
+<article class="feature"><div class="feature-icon" aria-hidden="true">▣</div><h3>Notebook companion</h3><p>Run a companion Jupyter notebook alongside the CLI implementation.</p></article>
+<article class="feature"><div class="feature-icon" aria-hidden="true">&gt;_</div><h3>Windows friendly</h3><p>Install using a Python virtual environment; optional launcher available.</p></article></div></div></section>
+<section id="architecture" class="section"><div class="container"><div class="section-heading"><p class="kicker">HIGH-LEVEL DESIGN</p><h2 class="section-title">State flows through the graph.</h2><p class="section-subtitle">LangGraph compiles nodes and edges into executable workflows. The implementation demonstrates branch selection, state updates, message reduction, and nested graph composition.</p></div><div class="architecture-layout"><div class="arch-shell"><div class="arch-title">Request → decision → state update</div><div class="flow-row"><div class="flow-box">START<small>initial input</small></div><span class="flow-arr" aria-hidden="true">→</span><div class="flow-box">StateGraph<small>nodes + edges</small></div><span class="flow-arr" aria-hidden="true">→</span><div class="flow-box">Router<small>conditional branch</small></div></div><div class="branch-panel"><b>Conditional execution</b><p>Different handlers can run based on the state returned by an earlier node. The project's numerical routing example selects multiplication or subtraction.</p></div><div class="branch-list"><div><strong style="color:#82e7e1">State schema</strong><br>TypedDict / Pydantic</div><div><strong style="color:#c3aaf9">Update strategy</strong><br>Overwrite / reducer</div><div><strong style="color:#82e7e1">Conversation</strong><br>add_messages / MessagesState</div><div><strong style="color:#c3aaf9">Composition</strong><br>Parent graph / subgraph</div></div></div><div class="arch-detail"><div class="arch-info"><b>01 / State contracts</b><p>Input, internal, private, and output schemas make data flow explicit. Nodes return partial dictionaries instead of mutating the input state.</p></div><div class="arch-info"><b>02 / Reducers and message history</b><p>Examples contrast overwriting a value with additive accumulation, unique-list merging, and message-ID-aware updates using <code>add_messages</code>.</p></div><div class="arch-info"><b>03 / HR ↔ IT subgraphs</b><p>Two compositional patterns illustrate calling an IT graph inside an HR node or attaching a compiled IT graph directly when the schemas match. These are workflow examples, not independent deployed agents.</p></div></div></div></div></section>
+<section class="section section-alt" id="examples"><div class="container"><div class="section-heading"><p class="kicker">EXAMPLE DIRECTORY</p><h2 class="section-title">18 practical LangGraph lessons.</h2><p class="section-subtitle">Browse by topic. Sixteen examples are deterministic and API-free; two illustrate optional hosted model integration. All eighteen are present in the repository's Python CLI.</p></div><div class="lesson-controls"><div class="filter-bar" role="group" aria-label="Filter examples"><button type="button" class="filter-button" data-filter="All" aria-pressed="true">All</button><button type="button" class="filter-button" data-filter="State" aria-pressed="false">State</button><button type="button" class="filter-button" data-filter="Reducers" aria-pressed="false">Reducers</button><button type="button" class="filter-button" data-filter="Messaging" aria-pressed="false">Messages</button><button type="button" class="filter-button" data-filter="Subgraphs" aria-pressed="false">Subgraphs</button><button type="button" class="filter-button" data-filter="Optional API" aria-pressed="false">OpenAI</button></div><label class="search-field"><span aria-hidden="true">⌕</span><span class="sr-only">Search LangGraph examples</span><input id="exampleSearch" type="search" placeholder="Search examples…" autocomplete="off" aria-label="Search examples"></label></div><div class="results-row"><span id="resultCount" role="status" aria-live="polite">Showing all 18 examples</span><span>Use <code>--topic</code> to run individually</span></div><div class="lesson-grid" id="lessonGrid"><article class="lesson" data-topic="greeting" data-group="Foundations">
+  <div class="lesson-top"><span class="lesson-index">01 / 18</span><span class="lesson-category">Foundations</span></div>
+  <h3>A first graph</h3><p>Build a single greeting node, connect START and END, compile and invoke the graph.</p>
+  <div class="lesson-footer"><code>--topic greeting</code><span>Offline</span></div>
+</article>
+<article class="lesson" data-topic="factorial" data-group="Foundations">
+  <div class="lesson-top"><span class="lesson-index">02 / 18</span><span class="lesson-category">Foundations</span></div>
+  <h3>Node execution</h3><p>Run an integer-processing node with an explicit input and deterministic output.</p>
+  <div class="lesson-footer"><code>--topic factorial</code><span>Offline</span></div>
+</article>
+<article class="lesson" data-topic="llm_node" data-group="Optional API">
+  <div class="lesson-top"><span class="lesson-index">03 / 18</span><span class="lesson-category">Optional API</span></div>
+  <h3>Optional LLM node</h3><p>Invoke a hosted OpenAI model through a LangGraph node when configured.</p>
+  <div class="lesson-footer"><code>--topic llm_node</code><span>API opt-in</span></div>
+</article>
+<article class="lesson" data-topic="normal_edges" data-group="Foundations">
+  <div class="lesson-top"><span class="lesson-index">04 / 18</span><span class="lesson-category">Foundations</span></div>
+  <h3>Sequential edges</h3><p>Compose reverse-string and uppercase nodes with normal graph edges.</p>
+  <div class="lesson-footer"><code>--topic normal_edges</code><span>Offline</span></div>
+</article>
+<article class="lesson" data-topic="conditional_edges" data-group="Routing">
+  <div class="lesson-top"><span class="lesson-index">05 / 18</span><span class="lesson-category">Routing</span></div>
+  <h3>Conditional routing</h3><p>Route data to multiplication or subtraction branches based on the intermediate state.</p>
+  <div class="lesson-footer"><code>--topic conditional_edges</code><span>Offline</span></div>
+</article>
+<article class="lesson" data-topic="typed_dict_state" data-group="State">
+  <div class="lesson-top"><span class="lesson-index">06 / 18</span><span class="lesson-category">State</span></div>
+  <h3>TypedDict state</h3><p>Define structured state keys and route even/odd values using partial state updates.</p>
+  <div class="lesson-footer"><code>--topic typed_dict_state</code><span>Offline</span></div>
+</article>
+<article class="lesson" data-topic="pydantic_state" data-group="State">
+  <div class="lesson-top"><span class="lesson-index">07 / 18</span><span class="lesson-category">State</span></div>
+  <h3>Pydantic validation</h3><p>Validate input bounds and explicitly validate computed output before updating state.</p>
+  <div class="lesson-footer"><code>--topic pydantic_state</code><span>Offline</span></div>
+</article>
+<article class="lesson" data-topic="input_output_schemas" data-group="State">
+  <div class="lesson-top"><span class="lesson-index">08 / 18</span><span class="lesson-category">State</span></div>
+  <h3>Input/output schemas</h3><p>Separate input, internal and output schemas to expose a focused graph interface.</p>
+  <div class="lesson-footer"><code>--topic input_output_schemas</code><span>Offline</span></div>
+</article>
+<article class="lesson" data-topic="private_schema" data-group="State">
+  <div class="lesson-top"><span class="lesson-index">09 / 18</span><span class="lesson-category">State</span></div>
+  <h3>Private intermediate state</h3><p>Pass derived counts between nodes without exposing them as public output.</p>
+  <div class="lesson-footer"><code>--topic private_schema</code><span>Offline</span></div>
+</article>
+<article class="lesson" data-topic="reducer_overwrite" data-group="Reducers">
+  <div class="lesson-top"><span class="lesson-index">10 / 18</span><span class="lesson-category">Reducers</span></div>
+  <h3>Overwrite behavior</h3><p>Compare the default last-write state behavior with reducer-based merging.</p>
+  <div class="lesson-footer"><code>--topic reducer_overwrite</code><span>Offline</span></div>
+</article>
+<article class="lesson" data-topic="reducer_numeric_add" data-group="Reducers">
+  <div class="lesson-top"><span class="lesson-index">11 / 18</span><span class="lesson-category">Reducers</span></div>
+  <h3>Numeric accumulation</h3><p>Use Annotated state with operator.add to combine integer updates.</p>
+  <div class="lesson-footer"><code>--topic reducer_numeric_add</code><span>Offline</span></div>
+</article>
+<article class="lesson" data-topic="reducer_list_append" data-group="Reducers">
+  <div class="lesson-top"><span class="lesson-index">12 / 18</span><span class="lesson-category">Reducers</span></div>
+  <h3>List accumulation</h3><p>Append list values across graph nodes using an addition reducer.</p>
+  <div class="lesson-footer"><code>--topic reducer_list_append</code><span>Offline</span></div>
+</article>
+<article class="lesson" data-topic="custom_reducer" data-group="Reducers">
+  <div class="lesson-top"><span class="lesson-index">13 / 18</span><span class="lesson-category">Reducers</span></div>
+  <h3>Custom unique merge</h3><p>Preserve insertion order while combining distinct list values through a custom reducer.</p>
+  <div class="lesson-footer"><code>--topic custom_reducer</code><span>Offline</span></div>
+</article>
+<article class="lesson" data-topic="add_messages" data-group="Messaging">
+  <div class="lesson-top"><span class="lesson-index">14 / 18</span><span class="lesson-category">Messaging</span></div>
+  <h3>Message reducer</h3><p>Merge or replace LangChain messages using stable IDs and add_messages.</p>
+  <div class="lesson-footer"><code>--topic add_messages</code><span>Offline</span></div>
+</article>
+<article class="lesson" data-topic="messages_state" data-group="Messaging">
+  <div class="lesson-top"><span class="lesson-index">15 / 18</span><span class="lesson-category">Messaging</span></div>
+  <h3>Offline conversation state</h3><p>Construct a MessagesState graph with structured conversation history, no API required.</p>
+  <div class="lesson-footer"><code>--topic messages_state</code><span>Offline</span></div>
+</article>
+<article class="lesson" data-topic="messages_state_llm" data-group="Optional API">
+  <div class="lesson-top"><span class="lesson-index">16 / 18</span><span class="lesson-category">Optional API</span></div>
+  <h3>LLM + MessagesState</h3><p>Use an optional OpenAI model with message state and a personalized prompt.</p>
+  <div class="lesson-footer"><code>--topic messages_state_llm</code><span>API opt-in</span></div>
+</article>
+<article class="lesson" data-topic="subgraph_wrapper" data-group="Subgraphs">
+  <div class="lesson-top"><span class="lesson-index">17 / 18</span><span class="lesson-category">Subgraphs</span></div>
+  <h3>HR + IT wrapper</h3><p>Invoke an IT subgraph inside an HR parent node while adapting different state schemas.</p>
+  <div class="lesson-footer"><code>--topic subgraph_wrapper</code><span>Offline</span></div>
+</article>
+<article class="lesson" data-topic="subgraph_direct" data-group="Subgraphs">
+  <div class="lesson-top"><span class="lesson-index">18 / 18</span><span class="lesson-category">Subgraphs</span></div>
+  <h3>Shared-state subgraph</h3><p>Add a compiled IT subgraph directly as a node in the HR parent graph.</p>
+  <div class="lesson-footer"><code>--topic subgraph_direct</code><span>Offline</span></div>
+</article></div><p class="empty" id="noResults" hidden>No matching example. Try another search term or select All.</p></div></section>
+<section class="section" id="getting-started"><div class="container"><div class="section-heading"><p class="kicker">GETTING STARTED</p><h2 class="section-title">From clone to first graph.</h2><p class="section-subtitle">These commands use the filenames currently present in your GitHub repository. Python 3.11 or 3.12 is recommended; a GPU is not required for the orchestration examples.</p></div><div class="run-grid"><div class="code-col"><div class="code-panel"><div class="code-head"><span>Install dependencies</span><button class="copy-btn" type="button" aria-label="Copy Install dependencies command">Copy</button></div><pre><code>git clone https://github.com/su394611-del/Mutli-agents-using-LangGraph.git
+cd Mutli-agents-using-LangGraph
+py -3.12 -m venv .venv-langgraph
+.\.venv-langgraph\Scripts\python.exe -m pip install --upgrade pip
+.\.venv-langgraph\Scripts\python.exe -m pip install -r requirements_langgraph_example.txt</code></pre></div>
+<div class="code-panel"><div class="code-head"><span>List and self-test examples</span><button class="copy-btn" type="button" aria-label="Copy List and self-test examples command">Copy</button></div><pre><code>.\.venv-langgraph\Scripts\python.exe langgraph_example_multi_agents.py --list
+.\.venv-langgraph\Scripts\python.exe langgraph_example_multi_agents.py --self-test</code></pre></div>
+<div class="code-panel"><div class="code-head"><span>Run a selected workflow</span><button class="copy-btn" type="button" aria-label="Copy Run a selected workflow command">Copy</button></div><pre><code>.\.venv-langgraph\Scripts\python.exe langgraph_example_multi_agents.py --topic conditional_edges
+.\.venv-langgraph\Scripts\python.exe langgraph_example_multi_agents.py --topic subgraph_wrapper</code></pre></div>
+<div class="code-panel"><div class="code-head"><span>Export graph source and results</span><button class="copy-btn" type="button" aria-label="Copy Export graph source and results command">Copy</button></div><pre><code>.\.venv-langgraph\Scripts\python.exe langgraph_example_multi_agents.py --export-mermaid .\diagrams --json-output .\results.json</code></pre></div></div><aside class="run-aside" aria-label="Setup guidance"><div class="tip"><h3>API-free first</h3><p>Use <code>--self-test</code> to run and validate the sixteen offline examples. No OpenAI key or model download is needed.</p></div><div class="tip"><h3>Optional LLM integration</h3><p>Only run <code>--with-llm</code>, <code>--topic llm_node</code>, or <code>--topic messages_state_llm</code> after configuring an OpenAI API key. Hosted calls can incur charges; never commit keys.</p><div class="code-panel" style="margin:12px 0 0"><div class="code-head"><span>Run optional LLM example</span><button type="button" class="copy-btn" aria-label="Copy optional LLM command">Copy</button></div><pre><code>$env:OPENAI_API_KEY = Read-Host "OpenAI API key"
+.\.venv-langgraph\Scripts\python.exe langgraph_example_multi_agents.py --topic llm_node</code></pre></div></div><div class="tip"><h3>Jupyter or VS Code</h3><p>The companion notebook is <a style="color:#98f5e9;text-decoration:underline" href="https://github.com/su394611-del/Mutli-agents-using-LangGraph/blob/main/langgraph_exmaple_multiagents.ipynb" target="_blank" rel="noopener noreferrer">langgraph_exmaple_multiagents.ipynb</a>. Select an environment with the requirements installed. The notebook supports offline runs by default.</p></div><div class="tip"><h3>Mermaid export</h3><p><code>--export-mermaid</code> produces local <code>.mmd</code> files; it does not require a remote image-rendering service. <code>--json-output</code> writes reproducible example results.</p></div></aside></div></div></section>
+<section class="section section-alt" id="source"><div class="container"><div class="section-heading"><p class="kicker">SOURCE &amp; DOCUMENTATION</p><h2 class="section-title">Inspect every implementation detail.</h2><p class="section-subtitle">The project exposes its Python functions, example notebook, dependencies and README directly. Explore the exact code behind each behavior rather than relying on a marketing description.</p></div><div class="detail-grid"><div class="files-card"><h3>Repository files</h3><ul><li><a href="https://github.com/su394611-del/Mutli-agents-using-LangGraph/blob/main/langgraph_example_multi_agents.py" target="_blank" rel="noopener noreferrer"><span class="mono">langgraph_example_multi_agents.py</span><span>Runnable CLI with 18 example topics <span aria-hidden="true">↗</span></span></a></li>
+<li><a href="https://github.com/su394611-del/Mutli-agents-using-LangGraph/blob/main/langgraph_exmaple_multiagents.ipynb" target="_blank" rel="noopener noreferrer"><span class="mono">langgraph_exmaple_multiagents.ipynb</span><span>Jupyter notebook companion <span aria-hidden="true">↗</span></span></a></li>
+<li><a href="https://github.com/su394611-del/Mutli-agents-using-LangGraph/blob/main/requirements_langgraph_example.txt" target="_blank" rel="noopener noreferrer"><span class="mono">requirements_langgraph_example.txt</span><span>Python dependencies <span aria-hidden="true">↗</span></span></a></li>
+<li><a href="https://github.com/su394611-del/Mutli-agents-using-LangGraph/blob/main/run_windows.cmd" target="_blank" rel="noopener noreferrer"><span class="mono">run_windows.cmd</span><span>Windows command launcher <span aria-hidden="true">↗</span></span></a></li>
+<li><a href="https://github.com/su394611-del/Mutli-agents-using-LangGraph/blob/main/README.md" target="_blank" rel="noopener noreferrer"><span class="mono">README.md</span><span>Project installation and topic guide <span aria-hidden="true">↗</span></span></a></li></ul><div class="links-panel"><a href="https://github.com/su394611-del/Mutli-agents-using-LangGraph" target="_blank" rel="noopener noreferrer">Open GitHub repository ↗</a><a href="https://github.com/su394611-del/Mutli-agents-using-LangGraph/wiki" target="_blank" rel="noopener noreferrer">Project wiki ↗</a></div></div><div class="scope-card"><h3>Implementation boundaries</h3><p>This is a runnable Python learning project for LangGraph orchestration. Its offline examples use deterministic Python operations—not an on-device trained language model.</p><ul class="scope-list"><li>The two OpenAI examples require credentials, network access and optional third-party packages.</li><li>HR/IT subgraphs model workflow coordination; they do not constitute a deployed multi-agent workforce.</li><li>No proprietary training data, model weights, distributed training, inference benchmark, or enterprise availability claim is implied.</li><li>Examples cover graph logic, but production deployments require appropriate persistence, testing, observability, access controls, and failure handling.</li></ul><div class="links-panel"><a href="https://github.com/su394611-del/Mutli-agents-using-LangGraph/blob/main/README.md" target="_blank" rel="noopener noreferrer">Read README ↗</a><a href="https://su394611-del.github.io/" target="_blank" rel="noopener noreferrer">Main AI portfolio ↗</a></div></div></div></div></section>
+</main>
+<footer class="footer"><div class="container footer-inner"><p>© 2026 Sudhanshu Shukla · Multi-Agent Workflows using LangGraph · Apache-2.0 source license</p><div class="footlinks"><a href="#top">Back to top ↑</a><a href="https://github.com/su394611-del/Mutli-agents-using-LangGraph" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://github.com/su394611-del/Mutli-agents-using-LangGraph/wiki" target="_blank" rel="noopener noreferrer">Wiki ↗</a></div></div></footer>
+<script>
+(function(){
+  'use strict';
+  const menuBtn=document.getElementById('menuBtn');
+  const nav=document.getElementById('siteNav');
+  menuBtn.addEventListener('click',function(){const opening=!nav.classList.contains('is-open');nav.classList.toggle('is-open',opening);menuBtn.setAttribute('aria-expanded',String(opening));menuBtn.setAttribute('aria-label',opening?'Close menu':'Open menu');});
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('is-open');menuBtn.setAttribute('aria-expanded','false');menuBtn.setAttribute('aria-label','Open menu');}));
+  const cards=Array.from(document.querySelectorAll('.lesson'));
+  const filters=Array.from(document.querySelectorAll('.filter-button'));
+  const search=document.getElementById('exampleSearch');
+  const result=document.getElementById('resultCount');
+  const empty=document.getElementById('noResults');
+  let active='All';
+  function apply(){const term=search.value.trim().toLowerCase();let shown=0;for(const card of cards){const matchesGroup=active==='All'||card.dataset.group===active;const matchesTerm=!term||card.textContent.toLowerCase().includes(term);const visible=matchesGroup&&matchesTerm;card.hidden=!visible;if(visible)shown++;}result.textContent='Showing '+shown+' of '+cards.length+' examples';empty.hidden=shown!==0;}
+  filters.forEach(btn=>btn.addEventListener('click',()=>{active=btn.dataset.filter;filters.forEach(el=>el.setAttribute('aria-pressed',String(el===btn)));apply();}));
+  search.addEventListener('input',apply);
+  document.querySelectorAll('.copy-btn').forEach(btn=>btn.addEventListener('click',async function(){const code=this.closest('.code-panel').querySelector('code');const text=code.innerText;try{if(!navigator.clipboard||!window.isSecureContext)throw new Error('Clipboard unavailable');await navigator.clipboard.writeText(text);this.textContent='Copied';}catch(e){const range=document.createRange();range.selectNodeContents(code);const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);this.textContent='Select text';}this.setAttribute('aria-label',this.textContent);this.blur();}));
+})();
+</script>
 </body>
 </html>
-
