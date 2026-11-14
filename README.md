@@ -1,4 +1,4 @@
-##   Multi-agents using LangGraph
+## Multi-agents using LangGraph
 - `langgraph_example_multiagents.py` — one **runnable Python script**, compatible with Windows PowerShell, VS Code, and macOS/Linux terminals.
 - `langgraph_example_mutliagents.ipynb` — one **self-contained Jupyter notebook**; every topic includes its code and a runnable example.
 - `requirements_langgraph_example.txt` — one dependency list for the offline examples, optional OpenAI examples, and Jupyter.
@@ -93,7 +93,6 @@ In the Jupyter notebook, set `RUN_OPENAI_EXAMPLES=1` in the kernel's environment
 - Both OpenAI examples are opt-in; offline `MessagesState` works without an API key.
 - Mermaid diagram source (`.mmd`) can be exported **without** requiring a network-dependent `draw_mermaid_png()` operation.
 - Scripts use `argparse` and `if __name__ == '__main__'` to avoid accidental execution when imported.
-- Each exercise is named and isolated; a deterministic `--self-test` is included.
 - The notebook includes all example definitions and can run on its own; it does not need to import the `.py` file.
 
 ## Notes and limitations
